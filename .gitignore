@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django
+*.log
+*.pot
+*.pyc
+db.sqlite3
+db.sqlite3-journal
+
+# Virtual Environments
+.env
+.venv/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE/Editor settings
+.vscode/
+.idea/
+
+# Static and Media files
+/media/
+/static/
+
+# Django migrations (cache files)
+*.mo
+
+# Test coverage and logs
+htmlcov/
+.coverage
+.coverage.*
+.pytest_cache/
+nosetests.xml
+coverage.xml
+
+# Backup files
+*.bak
+
+# Docker-related files (if используешь Docker)
+.dockerignore
+
+# Node.js (если используешь frontend внутри Django)
+node_modules/
+npm-debug.log
+yarn-error.log
