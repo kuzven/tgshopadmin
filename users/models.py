@@ -21,10 +21,19 @@ class BotUser(AbstractBaseUser):
     last_name = models.CharField(max_length=255, blank=True, null=True, verbose_name="Фамилия")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата регистрации")
 
+    password = None  # Отключаем пароль
+    last_login = None  # Отключаем поле "Последний вход"
+
     objects = BotUserManager()
 
     USERNAME_FIELD = 'telegram_id'
     REQUIRED_FIELDS = ['first_name']
+
+    def set_password(self, raw_password):
+        pass  # Отключаем установку пароля
+
+    def check_password(self, raw_password):
+        return False  # Отключаем проверку пароля
 
     def __str__(self):
         return f"{self.first_name} ({self.telegram_id})"
@@ -40,7 +49,7 @@ class Mailing(models.Model):
     sent_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата отправки")
 
     def __str__(self):
-        return f"Рассылка для {self.user.username} - {self.subject}"
+        return f"Рассылка для {self.user.first_name} ({self.user.telegram_id}) - {self.subject}"
 
     class Meta:
         verbose_name = "Рассылка"

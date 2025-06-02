@@ -43,7 +43,7 @@ class Cart(models.Model):
     added_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата добавления")
 
     def __str__(self):
-        return f"{self.user.username} - {self.product.name} ({self.quantity})"
+        return f"{self.user.first_name} ({self.user.telegram_id}) - {self.product.name} ({self.quantity})"
 
     class Meta:
         verbose_name = "Корзина"
@@ -56,7 +56,7 @@ class Order(models.Model):
     delivery_info = models.TextField(verbose_name="Данные доставки")
 
     def __str__(self):
-        return f"Заказ {self.id} - {self.user.username}"
+        return f"Заказ {self.id} - {self.user.first_name} ({self.user.telegram_id})"
 
     class Meta:
         verbose_name = "Заказ"
