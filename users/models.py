@@ -15,7 +15,7 @@ class BotUserManager(BaseUserManager):
         return user
 
 class BotUser(AbstractBaseUser):
-    telegram_id = models.PositiveIntegerField(unique=True, verbose_name="Telegram ID")
+    telegram_id = models.BigIntegerField(unique=True, verbose_name="Telegram ID")
     username = models.CharField(max_length=255, blank=True, null=True, verbose_name="Имя пользователя")
     first_name = models.CharField(max_length=255, verbose_name="Имя")
     last_name = models.CharField(max_length=255, blank=True, null=True, verbose_name="Фамилия")
