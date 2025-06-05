@@ -1,0 +1,24 @@
+services:
+  tgshopadmin:
+    build: .
+    container_name: tgshopadmin
+    restart: always
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    networks:
+      - projects-network
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  projects-network:
+    name: projects-network
+    external: true

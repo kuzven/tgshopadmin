@@ -27,7 +27,8 @@ class Product(models.Model):
     description = models.TextField(verbose_name="Описание")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE, related_name="products", verbose_name="Подкатегория")
-    image = models.ImageField(upload_to="product_images/", verbose_name="Изображение товара")
+    # image = models.ImageField(upload_to="product_images/", verbose_name="Изображение товара")
+    image = models.URLField(verbose_name="URL изображения товара", blank=True, null=True)
 
     def __str__(self):
         return self.name
